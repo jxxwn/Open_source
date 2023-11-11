@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include"kiosk.h"
 using namespace std;
 
 class Kiosk { //Kiosk Class가 queue 역할
@@ -9,7 +10,7 @@ class Kiosk { //Kiosk Class가 queue 역할
     string name;
 public:
     Kiosk* queue;
-    Kiosk();
+    Kiosk(){}
     Kiosk(int size_in);
     ~Kiosk();
     static int AllMoney;
@@ -32,7 +33,7 @@ void Kiosk::push_drink(string name_in, int table) {
     queue[table].name = name_in;
 }
 
-class Menu :public Kiosk {
+class Menu : Kiosk {
     int index;
     int price;
     int number;
@@ -51,11 +52,11 @@ Menu::Menu(int index_in, string menu_in, int price_in) {
 void Menu::Menu_list() {
     cout << "###### MENU_LIST #####" << endl;
     cout << "Number   Menu   Price" << endl;
-    cout << "#1   Ice Americano   \4500" << endl;
-    cout << "#2   Ice Latte   \5000" << endl;
-    cout << "#3   Ice Tea   \5000" << endl;
-    cout << "#4   Chamomile   \6000" << endl;
-    cout << "#5   Caramel Macchiato   \6500" << endl;
+    cout << "#1   Ice Americano   4500 Won" << endl;
+    cout << "#2   Ice Latte   5000 Won" << endl;
+    cout << "#3   Ice Tea   5000 Won" << endl;
+    cout << "#4   Chamomile   6000 Won" << endl;
+    cout << "#5   Caramel Macchiato   6500 Won" << endl;
     cout << "######################" << endl;
     cout << "1. 주문입력\n2. 주문현황\n3. 주문종료\n#####################" << endl;
     cout << "번호를 입력하시오 >> ";
